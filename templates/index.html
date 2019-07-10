@@ -1,0 +1,33 @@
+﻿{% extends "layout.html" %}
+
+{% block heading %}
+    BOOKS DB
+{% endblock %}
+
+{% block body %}
+
+{% if username %}
+<p>Welcome {{ username }}!</p>
+  <br>
+  <a href="{{ url_for('index') }}"> Results page</a>
+  <br>
+  <a href="{{ url_for('index') }}"> Book page</a>
+  <br>
+  <a href="{{ url_for('logout') }}"> Logout</a>
+
+
+<form class="form-inline md-form mr-auto mb-0">
+  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+  <button class="btn  btn-sm" type="submit">Search</button>
+</form>
+
+
+{% else %}
+
+  <a href="{{ url_for('login') }}"> Login here</a>
+  <br>
+  <a href="{{ url_for('register') }}"> Not yet registered?</a>
+
+{% endif %}
+
+{% endblock %}

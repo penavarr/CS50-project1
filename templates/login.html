@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    LOGIN
+{% endblock %}
+
+{% block body %}
+  <p>
+    <form method="post" action="{{ url_for('login') }}">
+		<div class="input-group mb-3">
+		  <div class="input-group-prepend">
+			<span class="input-group-text" >Username</span>
+		  </div>
+		  <input name="username" type="text" tabindex="1" class="form-control" placeholder="Username" aria-label="Username" value={{username}} >
+		</div>
+				<div class="input-group mb-3">
+		  <div class="input-group-prepend">
+			<span class="input-group-text" >Password</span>
+		  </div>
+		  <input name="password" type="password" tabindex="2" class="form-control" placeholder="Password" aria-label="Password" >
+		</div>
+
+
+        {% if error %}
+        <p class="text-danger">{{ error }}</p>
+        {% endif %}
+        <button type="submit" tabindex="3" class="btn normal-button">Login</button>
+    </form>
+	</p>
+	<p>
+	<a href="{{ url_for('register') }}">Register here</a>
+	</p>
+{% endblock %}
