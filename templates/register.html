@@ -1,10 +1,33 @@
 {% extends "layout.html" %}
 
+
 {% block heading %}
     REGISTRATION
 {% endblock %}
+{% from "_formhelpers.html" import render_field %}
 
 {% block body %}
+
+<div class="container">
+<form action="{{ url_for('register') }}" method=post>
+  <dl>
+    {{ render_field(form.username) }}
+    {{ render_field(form.email) }}
+    {{ render_field(form.password) }}
+    {{ render_field(form.confirm) }}
+  </dl>
+    {% if form.errors %}
+        <p class="text-danger">{{ form.errors[0] }}</p>
+    {% endif %}
+  <input type=submit class="btn normal-button" value=Register>
+
+</form>
+    <p>
+	<a href="{{ url_for('login') }}">Login here</a>
+	</p>
+</div>
+
+<!--
   <p>
     <form method="post" action="{{ url_for('register') }}">
 		<div class="input-group mb-3">
@@ -30,4 +53,5 @@
 	<p>
 	<a href="{{ url_for('login') }}">Login here</a>
 	</p>
+	-->
 {% endblock %}
