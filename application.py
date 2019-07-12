@@ -72,8 +72,6 @@ def clean_user():
 
 def create_user(username, password, email):
 	# not needed to check if the user exists in the DB because it's checked in "register" service.
-	print ("REEEEEEEEE")
-	print (result)
 	hashpassword = get_hash(password)
 
 	print(f"CREATE_USER: creating {email} in the DB")
